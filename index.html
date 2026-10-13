@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BCS Practice Exam</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #f2f5f9;
+    }
+    .box {
+      background: white;
+      padding: 22px;
+      border-radius: 12px;
+    }
+    button, select {
+      padding: 10px;
+      margin: 6px 0;
+      cursor: pointer;
+    }
+    button { background: #087f5b; color: white; border: 0; }
+    label { display: block; margin: 12px 0; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>BCS Practice Exam</h2>
+
+    <label>বিষয় নির্বাচন করুন:
+      <select id="subject">
+        <option>গণিত</option>
+        <option>বাংলা</option>
+        <option>English</option>
+        <option>সাধারণ বিজ্ঞান</option>
+      </select>
+    </label>
+
+    <h3 id="question">১. ২ + ৩ = কত?</h3>
+
+    <label><input type="radio" name="answer" value="4"> ৪</label>
+    <label><input type="radio" name="answer" value="5"> ৫</label>
+    <label><input type="radio" name="answer" value="6"> ৬</label>
+    <label><input type="radio" name="answer" value="7"> ৭</label>
+
+    <button onclick="checkAnswer()">উত্তর জমা দিন</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const selected = document.querySelector(
+        'input[name="answer"]:checked'
+      );
+
+      const result = document.getElementById("result");
+
+      if (!selected) {
+        result.textContent = "আগে একটি উত্তর নির্বাচন করুন।";
+      } else if (selected.value === "5") {
+        result.textContent = "সঠিক উত্তর! আপনার উত্তর ৫।";
+      } else {
+        result.textContent = "ভুল উত্তর। সঠিক উত্তর ৫।";
+      }
+    }
+  </script>
+</body>
+</html>
